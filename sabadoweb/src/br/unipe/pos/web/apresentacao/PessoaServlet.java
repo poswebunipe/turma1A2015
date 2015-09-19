@@ -63,7 +63,7 @@ public class PessoaServlet extends HttpServlet {
 		}
 		
 		if(tipoOperacao.equalsIgnoreCase("excluir")){
-		//	pessoaService.excluir(pessoa);
+		//	spessoaService.excluir(pessoa);
 		}
 		
 		
