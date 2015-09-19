@@ -59,11 +59,11 @@ public class PessoaServlet extends HttpServlet {
 		}
 		
 		if(tipoOperacao.equalsIgnoreCase("alterar")){
-			pessoaService.alterar(pessoa);
+		//	pessoaService.alterar(pessoa);
 		}
 		
 		if(tipoOperacao.equalsIgnoreCase("excluir")){
-			pessoaService.excluir(pessoa);
+		//	pessoaService.excluir(pessoa);
 		}
 		
 		
