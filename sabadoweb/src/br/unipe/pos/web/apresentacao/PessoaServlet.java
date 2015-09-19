@@ -1,6 +1,7 @@
 package br.unipe.pos.web.apresentacao;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,7 +41,7 @@ public class PessoaServlet extends HttpServlet {
 		String tipoOperacao = request.getParameter("form_operacao");
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
-		String dataNascimento = request.getParameter("dataNascimento");
+		String dataNascimento = request.getParameter("datanascimento");
 		String cep = request.getParameter("cep");
 		String logradouro = request.getParameter("logradouro");
 		String bairro = request.getParameter("bairro");
@@ -54,16 +55,14 @@ public class PessoaServlet extends HttpServlet {
 		pessoa.setTelefone(telefone);
 		pessoa.setLogradouro(logradouro);
 		
-		if(tipoOperacao.equalsIgnoreCase("incluir")){
-			pessoaService.incluir(pessoa);
-		}
+		boolean sucesso = pessoaService.incluir(pessoa);
 		
-		if(tipoOperacao.equalsIgnoreCase("alterar")){
-		//	pessoaService.alterar(pessoa);
-		}
+		PrintWriter pw = response.getWriter();
 		
-		if(tipoOperacao.equalsIgnoreCase("excluir")){
-		//	spessoaService.excluir(pessoa);
+		if(sucesso){
+			pw.write("Pessoa incluida na base com sucesso");
+		}else{
+			pw.write("Pessoa não foi incluida");
 		}
 		
 		
